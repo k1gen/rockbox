@@ -25,7 +25,7 @@
 #include <ctype.h>
 #include "mknwzboot.h"
 #include "upg.h"
-
+#include "keysig_search.h"
 #include "install_script.h"
 #include "uninstall_script.h"
 
@@ -54,6 +54,7 @@ static const struct nwz_model_desc_t nwz_models[] =
     { "Sony NW-A20 Series", "a20", 106, "nw-a20" },
     { "Sony NWZ-A860 Series", "a860", 107, "nwz-a860" },
     { "Sony NWZ-S750 Series", "s750", 108, "nwz-s750" },
+    { "Sony NWZ-S760 Series", "s760", 117, "nwz-s760" },
 };
 
 #define NR_NWZ_MODELS     (sizeof(nwz_models) / sizeof(nwz_models[0]))
@@ -171,7 +172,7 @@ static bool get_model_keysig(int model, char key[NWZ_KEY_SIZE], char sig[NWZ_SIG
     for(int i = 0; g_model_list[i].model; i++)
         if(strcmp(g_model_list[i].model, codename) == 0)
         {
-            if(decrypt_keysig(g_model_list[i].kas, key, sig) == 0)
+            if(decrypt_keysig(g_model_list[i].kas, &key, &sig) == 0)
                 return true;
             printf("[ERR] Cannot decrypt kas '%s'\n", g_model_list[i].kas);
             return false;

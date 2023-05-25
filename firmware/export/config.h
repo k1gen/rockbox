@@ -577,6 +577,8 @@ Lyre prototype 1 */
 #include "config/sonynwza860.h"
 #elif defined(SONY_NWZS750)
 #include "config/sonynwzs750.h"
+#elif defined(SONY_NWZS760)
+#include "config/sonynwzs760.h"
 #elif defined(SONY_NWZE350)
 #include "config/sonynwze350.h"
 #elif defined(AGPTEK_ROCKER)

@@ -31,7 +31,7 @@ LDOPTS += -lpthread
 OUTPUT = mknwzboot
 
 # inputs for lib
-UPGTOOLS_SOURCES = misc.c upg.c fwp.c mg.cpp md5.cpp
+UPGTOOLS_SOURCES = misc.c upg.c mg.cpp
 LIBSOURCES := mknwzboot.c install_script.c uninstall_script.c \
 	      $(addprefix $(UPGTOOLS_DIR),$(UPGTOOLS_SOURCES))
 # inputs for binary only
